@@ -36,4 +36,6 @@ export interface Project {
   challenges: PortableTextBlock[]; // Portable Text
   liveDemoLink?: string;
   githubRepoLink?: string;
+  coverEmoji?: string;
+  coverTitle?: string;
 }

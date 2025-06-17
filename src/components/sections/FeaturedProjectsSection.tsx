@@ -7,7 +7,7 @@ interface Project {
   title: string;
   tags: string[];
   caseStudyUrl: string;
-  emoji: string;
+  coverEmoji: string;
 }
 
 const projectsData: Project[] = [
@@ -17,7 +17,7 @@ const projectsData: Project[] = [
     title: 'Nexus Flow AI – Complex Application Prototyping',
     tags: ['Full-Stack', 'Next.js', 'Node.js API', 'Architecture', 'SaaS'],
     caseStudyUrl: '/projects/nexus-flow',
-    emoji: '🧪',
+    coverEmoji: '🧪',
   },
   {
     id: 'akasa-restaurant',
@@ -25,7 +25,7 @@ const projectsData: Project[] = [
     title: 'Akasa – Performance-Optimized Commercial Website',
     tags: ['Front-End', 'Performance', 'Next.js', 'Sanity CMS', 'Mobile-First'],
     caseStudyUrl: '/projects/akasa',
-    emoji: '🔥',
+    coverEmoji: '🔥',
   },
 ];
 
@@ -43,7 +43,7 @@ const FeaturedProjects: React.FC = () => {
               title={project.title}
                 tags={project.tags}
                 caseStudyUrl={project.caseStudyUrl}
-                emoji={project.emoji}
+                coverEmoji={project.coverEmoji}
               />
           ))}
         </div>

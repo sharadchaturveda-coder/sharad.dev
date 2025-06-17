@@ -1,26 +1,29 @@
-import HeroSection from '@/components/sections/HeroSection';
+import HeroSection from '@/components/sections/home/HeroSection';
 import ToolkitSection from '@/components/sections/ToolkitSection';
-import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection';
+import ProjectGallerySection from '@/components/sections/home/ProjectGallerySection';
+import AboutSnippetSection from '../components/sections/home/AboutSnippetSection';
+import ContactCTASection from '@/components/sections/home/ContactCTASection';
 
 const techStack = [
-  { name: 'Next.js' },
-  { name: 'React' },
-  { name: 'TypeScript' },
-  { name: 'Node.js' },
-  { name: 'Python' },
-  { name: 'Django' },
-  { name: 'Tailwind CSS' },
-  { name: 'Sanity.io' },
-  { name: 'Vercel' },
-  { name: 'Git' },
+  "Next.js", "React", "TypeScript", "Tailwind CSS",
+  "Node.js", "Python", "Django", "Sanity CMS",
+  "Vercel", "Git", "PostgreSQL"
 ];
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <HeroSection />
-      <ToolkitSection techStack={techStack} />
-      <FeaturedProjectsSection />
-    </main>
+      <section className="py-16">
+        <ToolkitSection techStack={techStack} />
+      </section>
+      <section className="py-16">
+        <ProjectGallerySection />
+      </section>
+      <section className="py-16">
+        <AboutSnippetSection />
+      </section>
+      <ContactCTASection />
+    </>
   );
 }

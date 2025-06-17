@@ -1,23 +1,43 @@
 import React from 'react';
 import Link from 'next/link';
-// Using Next.js Image component for optimization
+import Image from 'next/image'; // Import Next.js Image component
 
 interface ProjectCardProps {
   title: string;
   tags: string[];
   caseStudyUrl: string;
-  emoji: string;
+  imageUrl?: string; // Added imageUrl prop
+  coverEmoji?: string;
+  coverTitle?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, tags, caseStudyUrl, emoji }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, tags, caseStudyUrl, imageUrl, coverEmoji, coverTitle }) => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 duration-300 ease-in-out">
-      <div className="relative h-56 w-full">
-        {/* Placeholder for image - In a real scenario, use Next/Image */}
-        {/* <Image src={imageUrl} alt={title} layout="fill" objectFit="cover" /> */}
-        <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-          <span className="text-4xl">{emoji}</span>
-        </div>
+      <div className="relative h-56 w-full bg-gray-200 dark:bg-gray-700">
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={`${title} cover image`}
+            fill
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : (coverEmoji || coverTitle) ? (
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+            {coverEmoji && (
+              <div className="text-5xl text-center">{coverEmoji}</div>
+            )}
+            {coverTitle && (
+              <div className={`text-sm text-center text-gray-500 dark:text-gray-400 ${coverEmoji ? 'mt-2' : ''} mb-2`}>{coverTitle}</div>
+            )}
+          </div>
+        ) : (
+          // Fallback if no image and no cover text/emoji
+          (<div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-4xl" role="img" aria-label="Default project icon">🖼️</span>
+          </div>)
+        )}
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
