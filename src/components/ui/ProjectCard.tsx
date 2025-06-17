@@ -1,16 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Using Next.js Image component for optimization
+// Using Next.js Image component for optimization
 
 interface ProjectCardProps {
   title: string;
   tags: string[];
-  imageUrl: string;
   caseStudyUrl: string;
   emoji: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, tags, imageUrl, caseStudyUrl, emoji }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, tags, caseStudyUrl, emoji }) => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 duration-300 ease-in-out">
       <div className="relative h-56 w-full">
@@ -32,10 +31,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, tags, imageUrl, caseSt
             </span>
           ))}
         </div>
-        <Link href={caseStudyUrl} legacyBehavior>
-          <a className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">
-            View Case Study &rarr;
-          </a>
+        <Link href={caseStudyUrl} className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">
+          View Case Study &rarr;
         </Link>
       </div>
     </div>

@@ -1,6 +1,6 @@
-import Hero from '@/components/Hero';
-import Toolkit from '@/components/Toolkit';
-import FeaturedProjects from '@/components/FeaturedProjects';
+import HeroSection from '@/components/sections/HeroSection';
+import ToolkitSection from '@/components/sections/ToolkitSection';
+import FeaturedProjectsSection from '@/components/sections/FeaturedProjectsSection';
 
 const techStack = [
   { name: 'Next.js' },
@@ -18,9 +18,9 @@ const techStack = [
 export default function HomePage() {
   return (
     <main>
-      <Hero />
-      <Toolkit techStack={techStack} />
-      <FeaturedProjects />
+      <HeroSection />
+      <ToolkitSection techStack={techStack} />
+      <FeaturedProjectsSection />
     </main>
   );
 }

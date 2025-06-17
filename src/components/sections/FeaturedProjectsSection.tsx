@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectCard from './ProjectCard'; // Assuming ProjectCard.tsx is in the same directory
+import ProjectCard from '@/components/ui/ProjectCard';
 
 interface Project {
   id: string;
@@ -41,11 +41,10 @@ const FeaturedProjects: React.FC = () => {
             <ProjectCard
               key={project.id}
               title={project.title}
-              tags={project.tags}
-              imageUrl={project.imageUrl}
-              caseStudyUrl={project.caseStudyUrl}
-              emoji={project.emoji}
-            />
+                tags={project.tags}
+                caseStudyUrl={project.caseStudyUrl}
+                emoji={project.emoji}
+              />
           ))}
         </div>
       </div>
