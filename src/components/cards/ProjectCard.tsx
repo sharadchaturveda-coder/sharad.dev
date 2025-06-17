@@ -22,8 +22,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       href={`/projects/${slug}`}
       aria-label={`View project: ${title}`}
       className="group flex flex-col overflow-hidden rounded-xl border bg-white shadow transition-all duration-300 hover:shadow-lg"
-      legacyBehavior>
-      <div className="relative h-48 w-full">
+    >
+      <>
+        <div className="relative h-48 w-full">
         <Image
           src={imageUrl}
           alt={title}
@@ -49,6 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </div>
       </div>
+      </>
     </Link>
   );
 };
